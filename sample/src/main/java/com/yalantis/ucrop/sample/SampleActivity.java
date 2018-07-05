@@ -38,6 +38,7 @@ import com.yalantis.ucrop.UCrop;
 import com.yalantis.ucrop.UCropActivity;
 import com.yalantis.ucrop.UCropFragment;
 import com.yalantis.ucrop.UCropFragmentCallback;
+import com.yalantis.ucrop.model.AspectRatio;
 
 import java.io.File;
 import java.util.Locale;
@@ -338,7 +339,6 @@ public class SampleActivity extends BaseActivity implements UCropFragmentCallbac
 
         options.setHideBottomControls(mCheckBoxHideBottomControls.isChecked());
         options.setFreeStyleCropEnabled(mCheckBoxFreeStyleCrop.isChecked());
-
         /*
         If you want to configure how gestures work for all UCropActivity tabs
 
@@ -385,6 +385,10 @@ public class SampleActivity extends BaseActivity implements UCropFragmentCallbac
             new AspectRatio("ASPECT", 1, 1));
 
        */
+
+        // Aspect ratio options
+        options.withAspectRatio(4,3);
+        options.setAspectRatioOptions(1, new AspectRatio("4:3", 4, 3), new AspectRatio("4:3", 4, 3));
 
         return uCrop.withOptions(options);
     }
